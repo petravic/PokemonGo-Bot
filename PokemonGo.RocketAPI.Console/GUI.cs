@@ -1,4 +1,4 @@
-﻿using PokemonGo.RocketAPI.GeneratedCode;
+using PokemonGo.RocketAPI.GeneratedCode;
 using PokemonGo.RocketAPI.Logic.Utils;
 using System;
 using System.Collections.Generic;
@@ -177,6 +177,12 @@ namespace PokemonGo.RocketAPI.Console
                         case 22:
                             checkBox10.Checked = bool.Parse(line);
                             break;
+                        case 23:
+                            checkBox11.Checked = bool.Parse(line);
+                            break;
+                        //case 24:
+                        //    checkBox12.Checked = bool.Parse(line);
+                        //    break;
                         default:
                             TextBox temp = (TextBox)this.Controls.Find("textBox" + tb, true).FirstOrDefault();
                             temp.Text = line;
@@ -260,6 +266,23 @@ namespace PokemonGo.RocketAPI.Console
                             checkedListBox2.SetItemChecked(pokeIDS[gerEng[line]] - 1, true);
                         else
                             checkedListBox2.SetItemChecked(pokeIDS[line] - 1, true);
+                }
+            }
+
+            if (File.Exists(Program.lastcords))
+            {
+                try
+                {
+                    var latlngFromFile = File.ReadAllText(Program.lastcords);
+                    var latlng = latlngFromFile.Split(':');
+                    double latitude, longitude;
+                    double.TryParse(latlng[0], out latitude);
+                    double.TryParse(latlng[1], out longitude);
+                    Globals.latitute = latitude;
+                    Globals.longitude = longitude;
+                } catch
+                {
+
                 }
             }
 
@@ -507,6 +530,8 @@ namespace PokemonGo.RocketAPI.Console
             Globals.gerNames = checkBox8.Checked;
             Globals.useincense = checkBox9.Checked;
             Globals.pokeList = checkBox10.Checked;
+            Globals.keepPokemonsThatCanEvolve = checkBox11.Checked;
+            //Globals.pokevision = checkBox12.Checked;
 
             foreach (string pokemon in checkedListBox1.CheckedItems)
             {
@@ -552,7 +577,9 @@ namespace PokemonGo.RocketAPI.Console
                     Globals.gerNames.ToString(),
                     Globals.useincense.ToString(),
                     Globals.ivmaxpercent.ToString(),
-                    Globals.pokeList.ToString()
+                    Globals.pokeList.ToString(),
+                    Globals.keepPokemonsThatCanEvolve.ToString(),
+                    Globals.pokevision.ToString()
             };
             System.IO.File.WriteAllLines(@Program.account, accFile);
 
@@ -766,6 +793,66 @@ namespace PokemonGo.RocketAPI.Console
             textBox3.Text = Globals.latitute.ToString();
             textBox4.Text = Globals.longitude.ToString();
             textBox5.Text = Globals.altitude.ToString();
+        }
+
+        private void checkBox11_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox11.Checked)
+            {
+                Globals.keepPokemonsThatCanEvolve = true;
+            }
+            else
+            {
+                Globals.keepPokemonsThatCanEvolve = false;
+            }
+        }
+
+        private void checkBox12_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox11.Checked)
+            {
+                Globals.pokevision = true;
+            }
+            else
+            {
+                Globals.pokevision = false;
+            }
+        }
+
+        private void TextBoxes_Items_TextChanged(object sender, EventArgs e)
+        {
+            int item_summe = 0;
+
+            if (textBox10.Text != "" && textBox11.Text != "" && textBox12.Text != "" && textBox13.Text != "" && textBox14.Text != "" && textBox15.Text != "" && textBox16.Text != "" && textBox17.Text != "" && textBox22.Text != "" && textBox21.Text != "" && textBox23.Text != "")
+            {
+                item_summe = Convert.ToInt16(textBox10.Text) +
+                            Convert.ToInt16(textBox11.Text) +
+                            Convert.ToInt16(textBox12.Text) +
+                            Convert.ToInt16(textBox13.Text) +
+                            Convert.ToInt16(textBox14.Text) +
+                            Convert.ToInt16(textBox15.Text) +
+                            Convert.ToInt16(textBox16.Text) +
+                            Convert.ToInt16(textBox17.Text) +
+                            Convert.ToInt16(textBox22.Text) +
+                            Convert.ToInt16(textBox23.Text) +
+                            Convert.ToInt16(textBox21.Text);
+            }
+            textBox25.Text = Convert.ToString(item_summe);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RUNUBQEANCAGQ");
+        }
+
+        private void system_banner_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://high-minded.net/threads/pokemon-go-c-bot-safer-better.50731/");
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

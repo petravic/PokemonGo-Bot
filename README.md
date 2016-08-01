@@ -1,9 +1,13 @@
+# HELP NEEDED
+  - So there is a guy, which copys 1:1 my source and puts it online.
+  - Help me to get his Site + copied Bot removed. 
+  - His site is: https://www.pokecrot.com/
+  - Until that is done, i only publish builds. No Source.
+
 # Donate
   - Every Donation will help the Project!
   - 
 [![PayPal Donation](https://www.paypalobjects.com/en_US/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RUNUBQEANCAGQ)
-
-# PokemonGo Bot - Edit from Offical Fork.
 
 Credits to:
 
@@ -14,4 +18,5 @@ Credits to:
 
 Special thanks:
   - To FeroxRev, for this AMAZING work!
-
+  
+# PokemonGo Bot - Edit from Offical Fork.

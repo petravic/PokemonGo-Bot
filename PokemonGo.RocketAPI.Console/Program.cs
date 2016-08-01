@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using PokemonGo.RocketAPI.Exceptions;
 using System.Reflection;
@@ -21,6 +21,7 @@ namespace PokemonGo.RocketAPI.Console
         public static string keep = Path.Combine(path, "noTransfer.txt");
         public static string ignore = Path.Combine(path, "noCatch.txt");
         public static string evolve = Path.Combine(path, "Evolve.txt");
+        public static string lastcords = Path.Combine(path, "LastCords.txt");
 
         [STAThread]
         static void Main(string[] args)
@@ -106,6 +107,15 @@ namespace PokemonGo.RocketAPI.Console
                                 break;
                             case 19:
                                 Globals.useincense = bool.Parse(line);
+                                break; 
+                            case 21:
+                                Globals.ivmaxpercent = int.Parse(line);
+                                break; 
+                            case 23:
+                                Globals.keepPokemonsThatCanEvolve = bool.Parse(line);
+                                break;
+                            case 24:
+                                Globals.pokevision = bool.Parse(line);
                                 break;
                         }
                         i++;
@@ -355,8 +365,8 @@ namespace PokemonGo.RocketAPI.Console
         public static List<PokemonId> noTransfer = new List<PokemonId>();
         public static List<PokemonId> noCatch = new List<PokemonId>();
         public static List<PokemonId> doEvolve = new List<PokemonId>();
-        public static string telAPI = "empty";
-        public static string telName = "empty";
+        public static string telAPI = string.Empty;
+        public static string telName = string.Empty;
         public static int telDelay = 5000;
 
         public static int navigation_option = 1;
@@ -364,5 +374,7 @@ namespace PokemonGo.RocketAPI.Console
         public static bool useincense = true;
         public static bool gerNames = false;
         public static bool pokeList = true;
+        public static bool keepPokemonsThatCanEvolve = true;
+        public static bool pokevision = false;
     }
 }

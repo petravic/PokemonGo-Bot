@@ -1,4 +1,4 @@
-﻿using PokemonGo.RocketAPI.Enums;
+using PokemonGo.RocketAPI.Enums;
 using PokemonGo.RocketAPI.GeneratedCode;
 using System.Collections.Generic;
 
@@ -36,7 +36,10 @@ namespace PokemonGo.RocketAPI
         int navigation_option { get; }
 
         bool UseLuckyEgg { get; }
+        bool keepPokemonsThatCanEvolve { get; }
         bool UserIncense { get; }
+
+        bool pokevision { get; }
 
         bool Language { get; }
 

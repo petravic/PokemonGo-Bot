@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PokemonGo.RocketAPI.Console" GeneratedClassName="UserSettings">
   <Profiles />
   <Settings>
@@ -6,7 +6,7 @@
       <Value Profile="(Default)">username</Value>
     </Setting>
     <Setting Name="PtcPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)">pw</Value>
+      <Value Profile="(Default)">pw </Value>
     </Setting>
     <Setting Name="GoogleRefreshToken" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
